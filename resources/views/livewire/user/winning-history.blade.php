@@ -25,6 +25,10 @@
                                         Claimed Coins
                                     </th>
 
+                                    <th class="text-uppercase text-secondary text-xs opacity-7 ps-2">
+                                        Action
+                                    </th>
+
                                 </tr>
                             </thead>
 
@@ -42,7 +46,13 @@
                                             <p class="text-sm font-weight-bold mb-0">{{ $row->vmm->title }}</p>
                                         </td>
                                         <td>
-                                            <p class="text-sm font-weight-bold mb-0">{{ $row->user->name }}</p>
+                                            <p class="text-sm font-weight-bold mb-0">{{ $row->coins }}</p>
+                                        </td>
+                                        <td>
+                                            <a wire:click="withdraw({{ $row->id }})" type="button"
+                                                class="badge badge-xs badge-warning fw-600 text-xs">
+                                                Withdraw
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach

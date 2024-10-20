@@ -56,10 +56,8 @@
                                                 <option value="pending"
                                                     {{ $row->status == 'pending' ? 'selected' : '' }}>
                                                     Pending</option>
-                                                <option value="draft" {{ $row->status == 'draft' ? 'selected' : '' }}>
-                                                    Draft</option>
                                                 <option value="approved"
-                                                    {{ $row->status == 'approved' ? 'selected' : '' }}>In
+                                                    {{ $row->status == 'approved' ? 'selected' : '' }}>
                                                     Approve</option>
                                                 <option value="rejected"
                                                     {{ $row->status == 'rejected' ? 'selected' : '' }}>Reject</option>

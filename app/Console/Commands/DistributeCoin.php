@@ -74,7 +74,7 @@ class DistributeCoin extends Command
                     WinningHistory::create([
                         'user_id' => $investment->user_id,
                         'vmm_id' => $vmm->id,
-                        'coins' => $$coinsToAdd,
+                        'coins' => $coinsToAdd,
                     ]);
 
                 }

@@ -10,7 +10,7 @@ use App\Livewire\User\InvestHistory;
 use App\Livewire\User\VMM as UserVmm;
 use App\Livewire\User\WinningHistory;
 use App\Livewire\User\WithdrawHistory;
-use App\Livewire\User\WithdrawRequest;
+use App\Livewire\User\Balance;
 use Illuminate\Support\Facades\Route;
 
 // login route
@@ -38,8 +38,6 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'user'], function () {
     /* Admin Dashboard */
     Route::get('/', UserDashbaord::class)->name('dashboard');
 
-
-
     // user vmm route
     Route::get('vmm', UserVmm::class)->name('dashboard.vmm');
 
@@ -51,8 +49,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'user'], function () {
     Route::get('invest-history', InvestHistory::class)->name('dashboard.invest-history');
 
 
-    // user withdraw request route
-    Route::get('withdraw', WithdrawRequest::class)->name('dashboard.withdraw');
+    // user balance request route
+    Route::get('balance', Balance::class)->name('dashboard.balance');
 
 
     // user winninf history route

@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Admin;
 
+use App\Models\Wallet;
 use App\Models\Withdrawal;
 use Livewire\Component;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
@@ -37,6 +38,13 @@ class Withdrawals extends Component
         if ($item) {
             $item->status = $newStatus;
             $item->save();
+
+            if ($newStatus == 'approved') {
+                $userWallet = Wallet::where('user_id', $item->user_id)->first();
+
+                $userWallet->vmm_coin += $item->amount;
+                $userWallet->save();
+            }
 
             $this->dispatch('toast', message: 'Status updated successfully!', notify: 'success');
         } else {
