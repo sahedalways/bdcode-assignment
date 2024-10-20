@@ -13,8 +13,8 @@ return new class extends Migration {
         Schema::create('wallets', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
-            $table->decimal('vmm_coin', 10, 2)->default(0);
-            $table->decimal('taka', 10, 2)->default(0);
+            $table->integer('vmm_coin')->default(0);
+            $table->integer('taka')->default(0);
             $table->timestamps();
         });
     }

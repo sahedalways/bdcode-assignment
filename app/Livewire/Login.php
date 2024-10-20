@@ -31,7 +31,7 @@ class Login extends Component
             return redirect('/dashboard');
         } else {
             /* if the credentials are incorrect */
-            $this->addError('login_error', 'Invalid Email/Password');
+            return $this->addError('login_error', 'Invalid Email/Password');
         }
     }
     //Initialize Variables

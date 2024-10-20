@@ -32,9 +32,11 @@
                                                 <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                         </div>
-                                        @error('login_error')
-                                            <span class="text-danger">{{ $message }}</span>
-                                        @enderror
+
+                                        @if ($errors->has('login_error'))
+                                            <span
+                                                class="text-center text-danger">{{ $errors->first('login_error') }}</span>
+                                        @endif
 
                                         <div class="form-check form-switch">
                                             <input class="form-check-input" type="checkbox" id="rememberMe">

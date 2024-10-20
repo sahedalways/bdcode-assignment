@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Models\Investment;
 use App\Models\VMM;
 use App\Models\Wallet;
+use App\Models\WinningHistory;
 use Carbon\Carbon;
 use Illuminate\Console\Command;
 
@@ -47,7 +48,6 @@ class DistributeCoin extends Command
             }
 
 
-
             if ($now == $startTime) {
                 $totalCoins = $vmm->distribute_coin;
                 $executionTime = $vmm->execution_time;
@@ -69,10 +69,13 @@ class DistributeCoin extends Command
                     if ($wallet) {
                         $wallet->coin += $coinsToAdd;
                         $wallet->save();
-
-
                     }
 
+                    WinningHistory::create([
+                        'user_id' => $investment->user_id,
+                        'vmm_id' => $vmm->id,
+                        'coins' => $$coinsToAdd,
+                    ]);
 
                 }
 

@@ -10,12 +10,11 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('investments', function (Blueprint $table) {
+        Schema::create('winning_histories', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('vmm_id')->constrained('v_m_m_s')->onUpdate('cascade')->onDelete('cascade');
-            $table->integer('amount');
-            $table->enum('status', ['active', 'in_preparation', 'running', 'finished']);
+            $table->integer('coins');
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('investments');
+        Schema::dropIfExists('winning_histories');
     }
 };

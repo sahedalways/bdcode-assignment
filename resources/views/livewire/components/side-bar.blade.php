@@ -121,6 +121,17 @@
                         <span class="nav-link-text ms-1">Withdraw</span>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('dashboard/win-history') ? 'active' : '' }}"
+                        href="{{ route('dashboard.win-history') }}">
+                        <div
+                            class="icon icon-shape icon-sm text-center d-flex align-items-center justify-content-center">
+                            <i class="fas fa-trophy text-info text-sm opacity-10"></i>
+                        </div>
+                        <span class="nav-link-text ms-1">Winning History</span>
+                    </a>
+                </li>
             @endif
 
             <li class="nav-item">

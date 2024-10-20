@@ -8,6 +8,7 @@ use App\Livewire\Admin\Dashboard;
 use App\Livewire\User\Dashboard as UserDashbaord;
 use App\Livewire\User\InvestHistory;
 use App\Livewire\User\VMM as UserVmm;
+use App\Livewire\User\WinningHistory;
 use App\Livewire\User\WithdrawHistory;
 use App\Livewire\User\WithdrawRequest;
 use Illuminate\Support\Facades\Route;
@@ -52,4 +53,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'user'], function () {
 
     // user withdraw request route
     Route::get('withdraw', WithdrawRequest::class)->name('dashboard.withdraw');
+
+
+    // user winninf history route
+    Route::get('win-history', WinningHistory::class)->name('dashboard.win-history');
 });

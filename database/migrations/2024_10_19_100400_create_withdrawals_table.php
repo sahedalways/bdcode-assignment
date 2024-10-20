@@ -13,7 +13,7 @@ return new class extends Migration {
         Schema::create('withdrawals', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
-            $table->decimal('amount', 10, 2);
+            $table->integer('amount');
             $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
             $table->timestamps();
         });
