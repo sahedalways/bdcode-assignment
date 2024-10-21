@@ -44,11 +44,11 @@ class DistributeCoin extends Command
 
 
             if ($now->gte($endTime)) {
-                $this->info('Operation executed after 60 minutes from start time.');
+                $this->cloneVMM();
             }
 
 
-            if ($now == $startTime) {
+            if ($now->gte($startTime)) {
                 $totalCoins = $vmm->distribute_coin;
                 $executionTime = $vmm->execution_time;
                 $vmm->status = 'running';
@@ -65,11 +65,11 @@ class DistributeCoin extends Command
                     $investment = $investments[$index % $totalInvestments];
 
 
-                    $wallet = Wallet::where('user_id', $investment->user_id)->first();
-                    if ($wallet) {
-                        $wallet->coin += $coinsToAdd;
-                        $wallet->save();
-                    }
+                    // $wallet = Wallet::where('user_id', $investment->user_id)->first();
+                    // if ($wallet) {
+                    //     $wallet->coin += $coinsToAdd;
+                    //     $wallet->save();
+                    // }
 
                     WinningHistory::create([
                         'user_id' => $investment->user_id,
